@@ -10,6 +10,3 @@
 
 <a href="/">Go Back</a>
 </body>
-
-<a href="/">Go Back</a>
-</body>
