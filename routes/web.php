@@ -28,6 +28,6 @@ return view('post', [
 ]);
 
 
-})->where('post', '[A-z_\-]+');
+});
 
 
