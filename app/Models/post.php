@@ -29,15 +29,18 @@ $this->slug = $slug;
 
 public static function all()
 {
+return cache()->rememberForever('posts.all', function () {
 return collect(File::files(resource_path("posts")))
-->map(fn ($file) => YamlFrontMatter::parse(file_get_contents($file)))
+->map(fn ($file) => YamlFrontMatter::parseFile($file))
 ->map(fn ($document) => new post(
 $document->title,
 $document->exerpt,
 $document->date,
 $document->body(),
 $document->slug,
-));
+))
+->sortByDesc('date');
+  });
 }
 
 public static function find($slug)
