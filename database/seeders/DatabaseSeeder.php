@@ -18,52 +18,57 @@ class DatabaseSeeder extends Seeder
 public function run(): void
 {
 
-User::truncate();
-Post::truncate();
-Category::truncate();
-$user = User::factory()->create();
-
-$personal = Category::create([
-'name' => 'Personal',
-'slug' => 'personal'
+$user = User::factory()->create([
+    'name' => 'John Doe'
 ]);
 
-$family = Category::create([
-'name' => 'Family',
-'slug' => 'family'
+Post::factory(5)->create([
+    'user_id' => $user->id
 ]);
 
-$work = Category::create([
-'name' => 'Work',
-'slug' => 'work'
-]);
+//$user = User::factory()->create();
 
-Post::create([
-'user_id' => $user->id,
-'category_id' => $family->id,
-'title' => 'My Family Post',
-'slug' => 'my-family-post',
-'exerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
-'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
-]);
+//$personal = Category::create([
+//'name' => 'Personal',
+//'slug' => 'personal'
+//]);
 
-Post::create([
-'user_id' => $user->id,
-'category_id' => $personal->id,
-'title' => 'My Personal Post',
-'slug' => 'my-personal-post',
-'exerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
-'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
-]);
+//$family = Category::create([
+//'name' => 'Family',
+//'slug' => 'family'
+//]);
 
-Post::create([
-'user_id' => $user->id,
-'category_id' => $work->id,
-'title' => 'My Work Post',
-'slug' => 'my-work-post',
-'exerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
-'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
-]);
+//$work = Category::create([
+//'name' => 'Work',
+//'slug' => 'work'
+//]);
+
+//Post::create([
+//'user_id' => $user->id,
+//'category_id' => $family->id,
+//'title' => 'My Family Post',
+//'slug' => 'my-family-post',
+//'excerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
+//'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
+//]);
+
+//Post::create([
+//'user_id' => $user->id,
+//'category_id' => $personal->id,
+//'title' => 'My Personal Post',
+//'slug' => 'my-personal-post',
+//'excerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
+//'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
+//]);
+
+//Post::create([
+//'user_id' => $user->id,
+//'category_id' => $work->id,
+//'title' => 'My Work Post',
+//'slug' => 'my-work-post',
+//'excerpt' => '<p>Lorem ipsum dolor sit amet,</p>',
+//'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed commodo urna. Nulla interdum consequat mauris quis scelerisque.</p>',
+//]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
