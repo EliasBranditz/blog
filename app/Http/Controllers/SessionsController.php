@@ -27,6 +27,10 @@ throw ValidationException::withMessages([
 session()->regenerate();
 
 return redirect('/')->with('success', 'Welcome Back!');
+
+session()->regenerate();
+
+return redirect('/')->with('success', 'Welcome Back!');
 }
 
 public function destroy()
